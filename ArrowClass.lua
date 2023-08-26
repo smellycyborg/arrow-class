@@ -11,25 +11,30 @@ function arrow.new(player, part0, part1)
 	private.owner = player
 	
 	private.attachment0 = Instance.new("Attachment")
-	private.attachment0.CFrame = CFrame.new(Vector3.new(part0.Position))
-	private.attachment0.Parent = part0
-	
 	private.attachment1 = Instance.new("Attachment")
-	private.attachment1.CFrame = CFrame.new(Vector3.new(part1.Position))
-	private.attachment1.Parent = part1
-	
 	private.beam = Instance.new("Beam")
-	private.beam.Texture = ARROW_IMAGE_ID
-	private.beam.TextureMode = Enum.TextureMode.Wrap
-	private.beam.TextureSpeed = 2.5
-	private.beam.TextureLength = 3
-	private.beam.Width0 = 3
-	private.beam.Width1 = 3
-	private.beam.Transparency = NumberSequence.new(0)
-	private.beam.FaceCamera = true
-	private.beam.Attachment0 = private.attachment0
-	private.beam.Attachment1 = private.attachment1
-	private.beam.Parent = workspace
+	
+	local attachment0 = private.attachment0
+	local attachment1 = private.attachment1
+	local beam = private.beam
+	
+	attachment0.CFrame = CFrame.new(Vector3.new(part0.Position))
+	attachment0.Parent = part0
+	
+	attachment1.CFrame = CFrame.new(Vector3.new(part1.Position))
+	attachment1.Parent = part1
+	
+	beam.Texture = ARROW_IMAGE_ID
+	beam.TextureMode = Enum.TextureMode.Wrap
+	beam.TextureSpeed = 2.5
+	beam.TextureLength = 3
+	beam.Width0 = 3
+	beam.Width1 = 3
+	beam.Transparency = NumberSequence.new(0)
+	beam.FaceCamera = true
+	beam.Attachment0 = private.attachment0
+	beam.Attachment1 = private.attachment1
+	beam.Parent = workspace
 	
 	arrowPrivate[instance] = private
 	
