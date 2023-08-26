@@ -4,9 +4,11 @@ local arrow = {}
 local arrowPrototype = {}
 local arrowPrivate = {}
 
-function arrow.new(part0, part1)
+function arrow.new(player, part0, part1)
 	local instance = {}
 	local private = {}
+	
+	private.owner = player
 	
 	private.attachment0 = Instance.new("Attachment")
 	private.attachment0.CFrame = CFrame.new(Vector3.new(part0.Position))
@@ -32,6 +34,12 @@ function arrow.new(part0, part1)
 	arrowPrivate[instance] = private
 	
 	return setmetatable(instance, arrowPrototype)
+end
+
+function arrowPrototype:getOwner()
+	local private = arrowPrivate[self]
+	
+	return private.owner
 end
 
 function arrowPrototype:destroy()
